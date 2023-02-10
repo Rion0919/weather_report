@@ -1,0 +1,13 @@
+.dialog {
+  background-color: white;
+  color: red;
+  border: 2px solid black;
+  width: 500px;
+  height: 700px;
+  position: absolute;
+  bottom: 100px;
+  right: 20px;
+  border-radius: 20px;
+  padding: 4px;
+  box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+}

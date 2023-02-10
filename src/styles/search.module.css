@@ -1,0 +1,43 @@
+.searchContainer {
+    margin: 20px 20px;
+}
+
+.searchBox {
+    outline: none;
+    border-radius: 20px;
+    padding: 8px;
+    width: 500px;
+    border: 2px solid lightgray;
+}
+
+.searchBox:focus {
+    border: 2px solid skyblue;
+}
+
+.searchBtn {
+    margin-left: 10px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    outline: none;
+    color: white;
+    background-color: rgb(141, 141, 253);
+    cursor: pointer;
+    border: 2px solid rgb(141, 141, 253);
+}
+
+@media (max-width: 700px) {
+    .searchBox {
+        width: 350px;
+        border: 5px solid black;
+    }
+
+    .searchBtn {
+        width: 100px;
+    }
+}
+
+@media (min-width: 701px) {
+    .searchBox {
+        border: 5px solid red;
+    }
+}
