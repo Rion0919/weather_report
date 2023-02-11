@@ -1,6 +1,17 @@
+.container {
+  background-color: skyblue;
+  height: 1250px;
+}
+
+.mapContainer {
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
 @media (max-width: 700px) {
   .container {
     display: block;
+    align-items: start;
   }
 
   .mapContainer {
@@ -22,17 +33,15 @@
   }
 }
 
-
 @media (min-width: 960px) {
   .container {
     display: flex;
+    height: 907px;
   }
-  
+
   .mapContainer {
     position: relative;
     width: 100vw;
-    height: 850px;
-    border: 2px solid black
+    height: 903px;
   }
-} 
-
+}

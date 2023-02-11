@@ -1,16 +1,14 @@
-import React, { memo, useState } from "react";
+import { memo, useState } from "react";
 import styles from "./styles/app.module.css";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import Search from "./components/Search";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 import WeatherInfo from "./components/WeatherInfo";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const containerStyle = {
-  // height: "816px",
   height: "100%",
+  borderRadius: "20px",
 };
-
-console.log(window.visualViewport.width);
 
 const mapCenter = {
   lat: 35.6828,
@@ -23,8 +21,6 @@ const App = memo(() => {
   const [weather, setWeather] = useState([]);
   const [cityName, setCityName] = useState("");
 
-  let marker;
-
   // 「検索」ボタンクリック時に呼ぶメソッド
   const onClickSearch = async () => {
     const geocoder = new window.google.maps.Geocoder(); // geocoder instance
@@ -36,7 +32,6 @@ const App = memo(() => {
         if (status === window.google.maps.GeocoderStatus.OK) {
           const bounds = new window.google.maps.LatLngBounds();
           console.log("OK");
-          console.log(results[0]);
           setCityName(results[0].formatted_address);
           const latLng = results[0].geometry.location;
           setCenter({ lat: latLng.lat(), lng: latLng.lng() });
@@ -46,8 +41,6 @@ const App = memo(() => {
             setWeather(res.list);
           });
           setValue("");
-          // setLatLng({lat: latLng.lat(), lng: latLng.lng()})
-          setMarker(latLng);
         } else if (status === window.google.maps.GeocoderStatus.ZERO_RESULTS) {
           console.log("not found");
         } else {
@@ -69,23 +62,10 @@ const App = memo(() => {
     return jsonData;
   };
 
-  const setMarker = (place) => {
-    deleteMarker();
-    console.log(center);
-    // marker = new window.google.maps.Marker({
-    //   position: place,
-    // })
-    marker = true;
-  };
-
-  const deleteMarker = () => {
-    marker = false;
-  };
   return (
     <div>
       <div className={styles.headerContainer}>
-        <Header />
-        <Search value={value} setValue={setValue} onClick={onClickSearch} />
+        <Header value={value} setValue={setValue} onClick={onClickSearch} />
       </div>
       <div className={styles.container}>
         <div className={styles.mapContainer}>
@@ -94,13 +74,12 @@ const App = memo(() => {
               mapContainerStyle={containerStyle}
               center={center}
               zoom={10}
-            >
-              <Marker position={{ lat: 35, lng: 139 }} visible={true} />
-            </GoogleMap>
+            ></GoogleMap>
           </LoadScript>
         </div>
         <WeatherInfo weatherData={weather} cityName={cityName} />
       </div>
+      <Footer />
     </div>
   );
 });

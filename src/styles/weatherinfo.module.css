@@ -1,6 +1,6 @@
 .infoWindow {
   border-radius: 20px;
-  border: 2px solid skyblue;
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .infoHeader {
@@ -20,7 +20,7 @@
   list-style-type: none;
   overflow: scroll;
   border-radius: 20px;
-  border: 1px solid skyblue;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .listContent {
@@ -41,25 +41,27 @@
   }
 
   .infoHeader {
-    width: 400px;
+    width: 355px;
     margin-top: 13px;
   }
 
   .listContainer {
-    width: 444px;
+    padding: 0;
+    width: 400px;
     height: 500px;
     margin: 10px auto;
   }
 
   .listContent {
-    width: 405px;
+    width: 355px;
+    margin: 0 auto;
   }
 }
 
 @media (min-width: 701px) {
   .infoWindow {
     width: 752px;
-    margin: 20px auto;
+    margin: 20px auto 0;
     padding: 8px;
   }
 
@@ -77,24 +79,18 @@
 @media (min-width: 960px) {
   .infoWindow {
     width: 30vw;
-    height: 818px;
+    height: 886px;
     padding: 8px;
-    margin: 8px;
+    margin: 0 8px 8px 8px;
   }
 
   .listContainer {
     padding-right: 30px;
-    width: 270px;
-    height: 630px;
+    width: 260px;
+    height: 695px;
   }
 
   .listContent {
     width: 262px;
-  }
-
-  .listContent div {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 600;
   }
 }

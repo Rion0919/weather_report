@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../styles/weatherinfo.module.css";
 
 // UNIX UTCフォーマットを変換
@@ -54,17 +53,6 @@ const WeatherInfo = ({ weatherData, cityName }) => {
       description: weatherData[0].weather[0].description,
       weatherIcon: weatherData[0].weather[0].icon,
     };
-    console.log(currentData.weatherIcon);
-
-    // weatherData.forEach(function (item, index) {
-    //   if (index !== 0) {
-    //     console.log(index);
-    // /Users/rion/myApps/weather_report/public/01d.png
-    // public/03d.png
-    //     console.log(new Date(utcConvert(item.dt)).getDate() + "日");
-    //     console.log(new Date(utcConvert(item.dt)).getHours() + "時");
-    //   }
-    // });
 
     return (
       <div className={styles.infoWindow}>
@@ -73,7 +61,6 @@ const WeatherInfo = ({ weatherData, cityName }) => {
           <div>
             <h1>{currentData.temparature}</h1>
             <img src={`${currentData.weatherIcon}.png`} alt="images" />
-            {/* <p>{currentData.description}</p> */}
           </div>
         </div>
         <ul className={styles.listContainer}>
@@ -83,13 +70,9 @@ const WeatherInfo = ({ weatherData, cityName }) => {
                 <li key={index} className={styles.listContent}>
                   <p>{dateStyle(item)}</p>
                   <div>
-                    <h1>
-
-                    {Math.floor(item.main.temp) + "℃"}
-                    </h1>
+                    <h1>{Math.floor(item.main.temp) + "℃"}</h1>
                     <div>
-                      <img src={`${currentData.weatherIcon}.png`} alt="icon" />
-                      {/* <span>{item.weather[0].description}</span> */}
+                      <img src={`${item.weather[0].icon}.png`} alt="icon" />
                     </div>
                   </div>
                 </li>

@@ -1,7 +1,37 @@
 .container {
-  position: sticky;
-  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   background-color: skyblue;
   height: 55px;
+}
+
+.titleIcon {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.titleIcon h1 {
+  padding: 0 5px;
+  color: rgb(255, 255, 255);
+  margin-right: 10px;
+}
+
+.link {
+  color: white;
+  font-size: xx-large;
+}
+
+@media (max-width: 700px) {
+  .titleIcon {
+    display: none;
+  }
+}
+
+@media (min-width: 701px) {
+  .titleIcon h1 {
+    font-size: x-large;
+  }
 }
